@@ -11,10 +11,10 @@ import org.hibernate.annotations.UuidGenerator;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity(name = ProduitEntity.ENTITY_NAME)
+@Entity(name = DbProduitEntity.ENTITY_NAME)
 @Getter
 @Setter
-public class ProduitEntity {
+public class DbProduitEntity {
 
     public static final String ENTITY_NAME = "produit";
 
@@ -39,8 +39,8 @@ public class ProduitEntity {
                 .equals(o.getClass())) {
             return false;
         }
-        ProduitEntity produitEntity = (ProduitEntity) o;
-        return Objects.equals(reference, produitEntity.reference);
+        DbProduitEntity dbProduitEntity = (DbProduitEntity) o;
+        return Objects.equals(reference, dbProduitEntity.reference);
     }
 
     @Override

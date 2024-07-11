@@ -1,23 +1,36 @@
 package com.archi.hexagonale.domain.model;
 
 
+import com.archi.hexagonale.application.exception.BadRequestException;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.UUID;
 
 
-public record Produit(UUID reference , String designation ,String description ,Double prix) {
-    public static class Builder {
-          private  UUID reference ;
-          private  String designation;
-          private String description;
-          private Double prix;
+@Getter
+@Builder
+@AllArgsConstructor
+public class Produit {
 
-        public Builder reference(UUID reference) { this.reference = reference; return this; }
-        public Builder designation(String designation) { this.designation = designation ; return this; }
-        public Builder description(String description) { this.description = description; return this; }
-        public Builder prix(Double prix) { this.prix = prix; return this; }
+     private  UUID reference ;
+     private final String description;
+     private final String designation;
+     private final Double prix ;
 
-        public Produit build() {
-            return new Produit(reference, designation, description , prix);
-        }
-    }
+     /**
+      *  Ajouter les  règles de validation
+      *  pour un produit
+      */
+     public void  checkValidate(){
+         if (StringUtils.isBlank(designation)){
+               throw  new BadRequestException("Designation est obligatoire.");
+         }
+         if(prix <= 0 ){
+              throw  new BadRequestException("Le prix devrait  être supérieur  à zero.");
+         }
+     }
 }

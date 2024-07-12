@@ -38,7 +38,7 @@ docker run --name pgadmin -e "PGADMIN_DEFAULT_EMAIL=pg@mail.com" -e "PGADMIN_DEF
 ```plantuml
 @startuml 
  entity Produit {
-   - referencte
+   - reference
    - designation
    - description
    - prix

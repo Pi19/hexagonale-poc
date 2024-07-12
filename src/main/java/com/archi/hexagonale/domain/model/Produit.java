@@ -5,7 +5,6 @@ import com.archi.hexagonale.application.exception.BadRequestException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;

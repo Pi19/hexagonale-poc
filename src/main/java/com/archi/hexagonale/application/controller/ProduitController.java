@@ -39,7 +39,8 @@ public class ProduitController {
     @PostMapping
     @Operation(summary = "Create one  product .")
     public ResponseEntity<Void> createProduit(@RequestBody ProduitDto produitDto) {
-         var result  = produitUseCase.createProduit(ProduitConverterDto.toDomain(produitDto));return ResponseEntity
+         var result  = produitUseCase.createProduit(ProduitConverterDto.toDomain(produitDto));
+         return ResponseEntity
                 .created(URI.create(String.format("%s/%s",
                        "/api/produits",
                         result.toString())))

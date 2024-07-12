@@ -29,4 +29,13 @@ public abstract class AbstractUnitTest {
                   .description("from Inde").build();
           return produit;
      }
+
+     public static Produit mockFullProduit(){
+          var produit = Produit.builder()
+                  .reference(UUID.randomUUID())
+                  .prix(0.0)
+                  .designation("Rice")
+                  .description("from Inde").build();
+          return produit;
+     }
 }
